@@ -13,7 +13,7 @@ body:
     id: patch-version
     attributes:
       label: 패치 버전
-      placeholder: v0.1.0-beta.1
+      placeholder: v0.5.0-beta
     validations:
       required: true
 
@@ -65,4 +65,3 @@ body:
       options:
         - label: 원본 게임 파일, 키 또는 저장 데이터를 첨부하지 않았습니다.
           required: true
-
