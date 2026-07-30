@@ -23,6 +23,11 @@ jobs:
       - name: Verify tagged release
         run: python tools/verify_release.py --tag "$GITHUB_REF_NAME"
 
+      - name: Remove an existing release for this tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release delete "$GITHUB_REF_NAME" --yes || true
+
       - name: Publish release assets
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
