@@ -1,0 +1,23 @@
+# 운영체제·도구 임시 파일
+.DS_Store
+Thumbs.db
+Desktop.ini
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 원본 게임·키·추출물은 어떤 위치에서도 추적하지 않음
+*.nsp
+*.xci
+*.nca
+*.tik
+*.cert
+prod.keys
+title.keys
+*.keys
+
+# 로컬 빌드 임시 출력
+build/
+dist/
+tmp/
+

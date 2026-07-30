@@ -1,0 +1,41 @@
+name: Publish GitHub Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify tagged release
+        run: python tools/verify_release.py --tag "$GITHUB_REF_NAME"
+
+      - name: Publish release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          prerelease_flag=""
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then
+            prerelease_flag="--prerelease"
+          fi
+          gh release create "$GITHUB_REF_NAME" \
+            release/FTC02_Korean_LayeredFS.zip \
+            release/SHA256SUMS.txt \
+            --verify-tag \
+            --title "FTC02 한국어 패치 $GITHUB_REF_NAME" \
+            --notes-file RELEASE_NOTES.md \
+            $prerelease_flag

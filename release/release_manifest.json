@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "project": "패미컴 탐정클럽 - 뒤에 선 소녀 한국어 패치",
+  "version": "0.1.0-beta.1",
+  "tag": "v0.1.0-beta.1",
+  "title_id": "010078400F7B0000",
+  "target_version": "Application v0",
+  "runtime_files": 157,
+  "runtime_manifest_sha256": "074E307F72709D968E7549B5B2B50079C0AB940BFE5E998A588602F1B0F24BEB",
+  "assets": [
+    {
+      "path": "release/FTC02_Korean_LayeredFS.zip",
+      "kind": "drop_in_layeredfs",
+      "primary": true,
+      "bytes": 10021369,
+      "sha256": "ED1740A5AA78CBA3A6D5088B11D763F725866AAEFA6D0030493717127CBC196D"
+    }
+  ]
+}
