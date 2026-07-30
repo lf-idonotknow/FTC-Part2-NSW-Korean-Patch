@@ -136,21 +136,25 @@ def verify_layeredfs_zip(path: Path, document: dict[str, object]) -> None:
         if any(name.startswith("FTC02_Korean_LayeredFS/") for name in names):
             raise VerificationError("LayeredFS ZIP에 불필요한 상위 폴더가 있습니다.")
         required = {
-            "README.md",
-            "runtime_manifest.json",
-            "manifest.sha256",
-            "build_report.json",
             "licenses/OFL-1.1.txt",
             "licenses/FONT_NOTICES.md",
         }
+        unexpected = sorted(
+            name
+            for name in names
+            if (
+                not name.endswith("/")
+                and not name.startswith(prefix)
+                and name not in required
+            )
+        )
+        if unexpected:
+            raise VerificationError(
+                f"LayeredFS ZIP에 불필요한 파일이 있습니다: {unexpected}"
+            )
         missing = sorted(required - set(names))
         if missing:
             raise VerificationError(f"LayeredFS ZIP 필수 파일이 없습니다: {missing}")
-        runtime_manifest = archive.read("runtime_manifest.json")
-    actual_runtime_hash = hashlib.sha256(runtime_manifest).hexdigest().upper()
-    expected_runtime_hash = str(document["runtime_manifest_sha256"]).upper()
-    if actual_runtime_hash != expected_runtime_hash:
-        raise VerificationError("LayeredFS 런타임 매니페스트 해시가 다릅니다.")
 
 
 def main() -> int:
