@@ -11,8 +11,8 @@
       "path": "release/FTC02_Korean_LayeredFS.zip",
       "kind": "drop_in_layeredfs",
       "primary": true,
-      "bytes": 10001022,
-      "sha256": "923521114ACB87A2A6BA221D6970EED8ED437D27673F1B8B32F08CC4027D70A3"
+      "bytes": 10001078,
+      "sha256": "F2D3AF62ECC6695A628E4E83B22F3D70F7E86A4D3EC5ACFD4DE55D590F1D92D2"
     }
   ]
 }
