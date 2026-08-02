@@ -11,7 +11,7 @@ import sys
 import zipfile
 
 
-EXPECTED_ROMFS_FILES = 157
+EXPECTED_ROMFS_FILES = 180
 TITLE_ID = "010078400f7b0000"
 FORBIDDEN_NAMES = {"prod.keys", "title.keys"}
 FORBIDDEN_SUFFIXES = {".nsp", ".xci", ".nca", ".tik", ".cert", ".keys"}
