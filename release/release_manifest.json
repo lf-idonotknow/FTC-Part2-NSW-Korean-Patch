@@ -6,13 +6,14 @@
   "title_id": "010078400F7B0000",
   "target_version": "Application v0",
   "runtime_files": 180,
+  "korean_map_sha256": "0D7B73A673BC6EEE1A81FC662F651A16AEB8186A8D331E5348BF56463F05E1C0",
   "assets": [
     {
       "path": "release/FTC02_Korean_LayeredFS.zip",
       "kind": "drop_in_layeredfs",
       "primary": true,
-      "bytes": 10530784,
-      "sha256": "6105D6483CB93006B9B659F4A58F8683A3262A530C85E1313B08D8C866AC4F52"
+      "bytes": 10530966,
+      "sha256": "2B199CE737E9B777A137689E73946E0E40BD7AEE7A3E170FE44FE5FC071C7136"
     }
   ]
 }

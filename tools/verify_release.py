@@ -13,6 +13,14 @@ import zipfile
 
 EXPECTED_ROMFS_FILES = 180
 TITLE_ID = "010078400f7b0000"
+EXPECTED_RUNTIME_HASHES = {
+    "script/mes00/_system_00.msb": (
+        "744B5280E287B20192647382E80C0B6E923049D1B7C974542D76863825490B0D"
+    ),
+    "script/mes00/ftv2_001a_00.msb": (
+        "1617FABB077085D84FCD66435B0A78381B94B778CDF0ED4ECC6B17CAA3A7A82F"
+    ),
+}
 FORBIDDEN_NAMES = {"prod.keys", "title.keys"}
 FORBIDDEN_SUFFIXES = {".nsp", ".xci", ".nca", ".tik", ".cert", ".keys"}
 
@@ -155,6 +163,17 @@ def verify_layeredfs_zip(path: Path, document: dict[str, object]) -> None:
         missing = sorted(required - set(names))
         if missing:
             raise VerificationError(f"LayeredFS ZIP 필수 파일이 없습니다: {missing}")
+        for relative, expected_hash in EXPECTED_RUNTIME_HASHES.items():
+            archive_path = prefix + relative
+            if archive_path not in names:
+                raise VerificationError(
+                    f"문자표 회귀 검사 파일이 없습니다: {archive_path}"
+                )
+            actual_hash = hashlib.sha256(archive.read(archive_path)).hexdigest().upper()
+            if actual_hash != expected_hash:
+                raise VerificationError(
+                    f"문자표 회귀 검사 해시가 다릅니다: {archive_path}"
+                )
 
 
 def main() -> int:
