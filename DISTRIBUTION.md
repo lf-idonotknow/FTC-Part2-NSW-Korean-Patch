@@ -37,7 +37,7 @@ F:\Famicon Tantei Club\FTC02_Korean_Patch_GitHub
 3. 설명에는 다음처럼 입력할 수 있습니다.
 
    ```text
-   패미컴 탐정 클럽 파트2: 뒤에 선 소녀 Nintendo Switch판 비공식 한국어 패치
+   패미컴 탐정 클럽: 뒤에 선 소녀 Nintendo Switch판 비공식 한국어 패치
    ```
 
 4. 공개 배포라면 `Keep this code private`의 체크를 해제합니다.
