@@ -77,9 +77,40 @@ GitHub Desktop은 기본적으로 생성한 태그를 원격 저장소에도
 5. `FTC02_Korean_LayeredFS.zip`과 `SHA256SUMS.txt`가 첨부됐는지
    확인합니다.
 
-## 6. 다음 버전 배포
+## 6. 배포 ZIP 생성 규칙
 
-1. `release\FTC02_Korean_LayeredFS.zip`을 새 검증본으로 교체합니다.
+Windows PowerShell의 `Compress-Archive`는 사용하지 않습니다. 현재
+환경에서는 ZIP 내부 엔트리 경로를 `\`로 기록하므로 GitHub Actions와
+Linux의 POSIX 경로 검사에서 올바른 `atmosphere/...` 경로로 인식되지
+않습니다.
+
+배포 ZIP은 다음 스크립트로만 만듭니다.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\build_release_zip.ps1 `
+  -SourceRoot "F:\Famicon Tantei Club\FTC02_Korean_LayeredFS"
+```
+
+스크립트는 다음 조건을 모두 확인한 뒤에만 기존 배포 ZIP을 교체합니다.
+
+- 모든 ZIP 엔트리 경로가 `/`를 사용하고 `\`가 없음
+- `release_manifest.json`과 RomFS 파일 수가 일치함
+- `atmosphere/`와 `licenses/` 이외의 파일이 없음
+- 원본 배포 폴더와 ZIP 안의 전체 파일 이름·SHA-256이 일치함
+- 필수 글꼴 라이선스 파일이 들어 있음
+
+생성 후에는 반드시 다음 검증까지 실행합니다.
+
+```powershell
+python tools\verify_release.py --tag v0.6.0-beta
+```
+
+위 검사 중 하나라도 실패하면 ZIP을 커밋하거나 GitHub Release에
+업로드하지 않습니다.
+
+## 7. 다음 버전 배포
+
+1. 위의 `tools\build_release_zip.ps1`로 검증된 ZIP을 생성합니다.
 2. 다음 파일의 버전·태그·크기·SHA-256과 설명을 갱신합니다.
    - `release\release_manifest.json`
    - `release\SHA256SUMS.txt`

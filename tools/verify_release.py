@@ -123,6 +123,11 @@ def verify_checksums(root: Path, assets: list[Path]) -> None:
 
 
 def verify_zip_names(names: list[str], label: str) -> None:
+    non_posix = [name for name in names if "\\" in name]
+    if non_posix:
+        raise VerificationError(
+            f"{label} ZIP 엔트리에 역슬래시 경로가 있습니다: {non_posix[:5]}"
+        )
     forbidden = [
         name
         for name in names
