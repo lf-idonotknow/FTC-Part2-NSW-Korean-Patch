@@ -29,6 +29,9 @@ EXPECTED_RUNTIME_HASHES = {
     "system/arasuji_ftv2.png": (
         "EA1D81B09DD4431A9A29968E149CBB807FCD37556C3126FD107EB2A74C01F6F7"
     ),
+    "anime/jp/ft2_location_10/ft2_location_10.png": (
+        "B593D17703D2845BA30B034662095F9D5EFA06BBE428B72905BC6543BF1320CB"
+    ),
 }
 FORBIDDEN_NAMES = {"prod.keys", "title.keys"}
 FORBIDDEN_SUFFIXES = {".nsp", ".xci", ".nca", ".tik", ".cert", ".keys"}
