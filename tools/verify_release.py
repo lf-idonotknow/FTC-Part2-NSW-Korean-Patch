@@ -26,6 +26,9 @@ EXPECTED_RUNTIME_HASHES = {
     "system/titlebg00_ftv2.png": (
         "ECD906F80E4EEE2C8BF25E8AFDCFA35179E8DAEF365F8519F6D7D9983C3A64C1"
     ),
+    "system/arasuji_ftv2.png": (
+        "EA1D81B09DD4431A9A29968E149CBB807FCD37556C3126FD107EB2A74C01F6F7"
+    ),
 }
 FORBIDDEN_NAMES = {"prod.keys", "title.keys"}
 FORBIDDEN_SUFFIXES = {".nsp", ".xci", ".nca", ".tik", ".cert", ".keys"}
