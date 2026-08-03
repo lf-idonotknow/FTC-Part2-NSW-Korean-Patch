@@ -5,15 +5,15 @@
   "tag": "v0.6.0-beta",
   "title_id": "010078400F7B0000",
   "target_version": "Application v0",
-  "runtime_files": 182,
+  "runtime_files": 184,
   "korean_map_sha256": "0D7B73A673BC6EEE1A81FC662F651A16AEB8186A8D331E5348BF56463F05E1C0",
   "assets": [
     {
       "path": "release/FTC02_Korean_LayeredFS.zip",
       "kind": "drop_in_layeredfs",
       "primary": true,
-      "bytes": 15750331,
-      "sha256": "E3E55F0C17B547B4C4E241AA68F2FB7A0BAA0E810E6DB1F2876FF9FB2C3D1D18"
+      "bytes": 18227175,
+      "sha256": "563562AC46D35CA9DB7F892995FF680EC97EF6885517767F34B991F9C5933EA1"
     }
   ]
 }
