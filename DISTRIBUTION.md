@@ -47,12 +47,12 @@ F:\Famicon Tantei Club\FTC02_Korean_Patch_GitHub
 
 ## 4. 첫 GitHub Release 게시
 
-현재 배포 후보 태그는 `v0.6.5-beta`입니다.
+현재 배포 후보 태그는 `v0.9.0`입니다.
 
 1. GitHub Desktop 왼쪽에서 `History`를 선택합니다.
 2. 가장 최신 커밋을 마우스 오른쪽 버튼으로 누릅니다.
 3. `Create Tag...`를 선택합니다.
-4. 태그 이름에 `v0.6.5-beta`를 정확히 입력합니다.
+4. 태그 이름에 `v0.9.0`을 정확히 입력합니다.
 5. `Create Tag`를 누릅니다.
 
 GitHub Desktop은 기본적으로 생성한 태그를 원격 저장소에도
@@ -73,7 +73,7 @@ GitHub Desktop은 기본적으로 생성한 태그를 원격 저장소에도
    - `Publish GitHub Release`
 3. 두 작업이 녹색 체크로 끝났는지 확인합니다.
 4. 저장소 메인 화면 오른쪽의 `Releases`에서
-   `v0.6.5-beta`를 엽니다.
+   `v0.9.0`을 엽니다.
 5. `FTC02_Korean_LayeredFS.zip`과 `SHA256SUMS.txt`가 첨부됐는지
    확인합니다.
 
@@ -102,7 +102,7 @@ powershell -ExecutionPolicy Bypass -File tools\build_release_zip.ps1 `
 생성 후에는 반드시 다음 검증까지 실행합니다.
 
 ```powershell
-python tools\verify_release.py --tag v0.6.5-beta
+python tools\verify_release.py --tag v0.9.0
 ```
 
 위 검사 중 하나라도 실패하면 ZIP을 커밋하거나 GitHub Release에
